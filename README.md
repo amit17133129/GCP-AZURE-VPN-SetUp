@@ -128,7 +128,7 @@ The HA VPN gateway uses two tunnels, both tunnels to the single external IP addr
 When you on the below page while configuring the HA VPN you have to give the name of the VPN, the network name and the region in which you would like to create the HA VPN here i am taking the default region as us-east1.
 
 <p align="center">
-  <img width="1000" height="600" src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*PjbGLUQtVtVgl4_nRvQ9EA.png">
+  <img width="1000" height="700" src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*PjbGLUQtVtVgl4_nRvQ9EA.png">
 </p>
 
 After clicking on create and continue i will provide you the two interfaces as you can see below. These interface ip’s will be useful later.
@@ -172,7 +172,7 @@ Now lets move to gcp side to create the peer vpn gateway. Cloud VPN securely con
 While creating Peer VPN gateway it will ask you to enter the vpn interface’s ip’s. We be moving towards two interfaces ip’s. You have to enter the public ip addresses which we created in azure.
 
 <p align="center">
-  <img width="1000" height="700" src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*c8KzMfZnLYBS5PyQEDfxUA.png">
+  <img width="1000" height="600" src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*c8KzMfZnLYBS5PyQEDfxUA.png">
 </p>
 
 ### Cloud Routers:
@@ -181,7 +181,7 @@ Cloud Router is a fully distributed and managed Google Cloud service that uses t
 While creating the cloud router you have to give the name of the cloud router, the google ASN (enter randomly) and click on create.
 
 <p align="center">
-  <img width="1000" height="700" src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*apGTs6b_6BuDr006uFaULg.png">
+  <img width="1000" height="600" src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*apGTs6b_6BuDr006uFaULg.png">
 </p>
 
 After creating cloud router we will be configuring the tunnels. Here we will be configuring the two tunnels. While configuring the tunnel you have to give the name of the tunnel, the IKE version and the pre shared key. Here the pre shared key wil be generated when you click on generate and copy. Note: Keep this pre-shared key with yourself. We will require this pre-shared key late while configuring the vpn in azure.
@@ -198,7 +198,7 @@ Cloud VPN gateway IP 2: 35.220.0.218
 ```
 
 <p align="center">
-  <img width="1000" height="700" src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*h_yhaBvNmI8MOH7OKl9VHg.png">
+  <img width="1000" height="150" src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*h_yhaBvNmI8MOH7OKl9VHg.png">
 </p>
 
 ## Azure side configuration:
@@ -207,13 +207,13 @@ Azure Virtual Network (VNet) is the fundamental building block for your private 
 While creating the virtual network gateway select the name of the virtual network gateway, the region in which you wanted to have this virtual network gateway and all the details as per below image.
 
 <p align="center">
-  <img width="1000" height="700" src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*d-5uTp8FXH3Byoe_ZCSOMQ.png">
+  <img width="1000" height="600" src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*d-5uTp8FXH3Byoe_ZCSOMQ.png">
 </p>
 
 Click on use existing to add the public ip addresses that we created earlier. Add the primary and secondary public ip addresses as mentioned below. Add the ASN number randomly. Enter the custo azure APIPA BGP address in the range of below ip address and click on review and create.
 
 <p align="center">
-  <img width="1000" height="700" src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*9Jm_Qd_hkwyxJ8Cto3EpQg.png">
+  <img width="1000" height="600" src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*9Jm_Qd_hkwyxJ8Cto3EpQg.png">
 </p>
 
 Finally, we can see that virtual network gateway is created successfully.
@@ -230,17 +230,17 @@ Here while configuring the local network gateway we will add the gcp cloud vpn g
 Click on advance and give the google ASN i.e. 65001 (remember we added this ASN while creating HA VPN in gcp) and BGPpeer IP address will be the same as what you enetered in the address spaces. Finally click on create.
 
 <p align="center">
-  <img width="1000" height="700" src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*VQNOXgR6QGm-bxdv7o0drQ.png">
+  <img width="1000" height="600" src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*VQNOXgR6QGm-bxdv7o0drQ.png">
 </p>
 
 <p align="center">
-  <img width="1000" height="700" src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*mdTvA_8vwf0SNKXJy9ZQIA.png">
+  <img width="1000" height="600" src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*mdTvA_8vwf0SNKXJy9ZQIA.png">
 </p>
 
 The same process you have to follow creating the second local network gateway. Remember we will be adding the second ip address from cloud VPN gateway.
 
 <p align="center">
-  <img width="1000" height="700" src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*KLuBhdAIGxym23SQ_xEhcQ.png">
+  <img width="1000" height="600" src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*KLuBhdAIGxym23SQ_xEhcQ.png">
 </p>
 
 <p align="center">
@@ -250,7 +250,7 @@ The same process you have to follow creating the second local network gateway. R
 Finally you can see that the two local gateway internet is created successfully.
 
 <p align="center">
-  <img width="1000" height="700" src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*7am2V3UejsPK1xdFPvDZew.png">
+  <img width="1000" height="100" src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*7am2V3UejsPK1xdFPvDZew.png">
 </p>
 
 After creating the local network gateway we will be adding the connections inside the virtual network gateway. Navigate to virtual network gateway and click on connections. We will create the first connection. While configuring the first connection select the connection type as site-to-site(IPsec). Select the virtual network gateway that you created. Later select the first local network gateway while creating the first connection. Similarly, select the second local network gateway while configuring the second connection.
@@ -290,14 +290,14 @@ As you can see the tunnel have BGP session established successfully.
 Now you have to create the virtual machines on the both the side i.e. azure and gcp. Make sure you creating the VM in the same network in which you made all the configurations earlier.
 
 <p align="center">
-  <img width="1000" height="700" src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*aWW2yjRUbOH3iFPr2MTxAA.png">
+  <img width="1000" height="600" src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*aWW2yjRUbOH3iFPr2MTxAA.png">
 </p>
 
 As you can see that from the gcp compute instance console we can able to ping the private ip address of the azure vm.
 
 
 <p align="center">
-  <img width="1000" height="700" src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*aWW2yjRUbOH3iFPr2MTxAA.png">
+  <img width="1000" height="600" src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*aWW2yjRUbOH3iFPr2MTxAA.png">
 </p>
 
 Let’s move on the gcp side, you can see that from the azure vm console we can able to ping the private ip address of the gcp vm.
@@ -305,5 +305,5 @@ Let’s move on the gcp side, you can see that from the azure vm console we can 
 I hope you had liked this article and would help you while creating the gcp and azure vpn setup successfully.
 
 <p align="center">
-  <img width="1000" height="150" src="https://miro.medium.com/v2/resize:fit:280/0*Aan_vZZQfRV6xTMu">
+  <img width="1000" height="600" src="https://miro.medium.com/v2/resize:fit:280/0*Aan_vZZQfRV6xTMu">
 </p>
